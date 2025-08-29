@@ -1,0 +1,16 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flask==3.0.1",
+    "flask-socketio==5.5.0",
+    "maccel>=0.29.0",
+    "mblt-model-zoo[transformers]==0.3.2",
+    "torchvision>=0.21.0",
+]
+
+[tool.black]
+line-length = 120

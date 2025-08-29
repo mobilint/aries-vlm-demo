@@ -1,0 +1,9 @@
+services:
+  aries_vlm_backend:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1        # 또는 "all"
+              capabilities: [gpu]

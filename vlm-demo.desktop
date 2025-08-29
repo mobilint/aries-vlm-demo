@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type = Application
+Name = VLM
+Exec = bash /home/mobilint/aries-vlm-demo/run.sh
+Terminal = true

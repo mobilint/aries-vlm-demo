@@ -1,0 +1,89 @@
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 38px;
+  height: 150px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #393939;
+  background-clip: content-box;
+  border-radius: 19px;
+  border: 14px solid transparent;
+}
+
+/* Firefox */
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: auto;              /* auto, thin, none */
+    scrollbar-color: #393939 transparent; /* thumb 색상, track 색상 */
+  }
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(/fonts/Pretendard-Bold.eot);
+  src: url(/fonts/Pretendard-Bold.eot?#iefix) format(embedded-opentype),
+    url(/fonts/Pretendard-Bold.woff2) format(woff2),
+    url(/fonts/Pretendard-Bold.woff) format(woff),
+    url(/fonts/Pretendard-Bold.ttf) format(truetype),
+    url(/fonts/Pretendard-Bold.svg#Pretendard-Bold) format(svg);
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(/fonts/Pretendard-ExtraBold.eot);
+  src: url(/fonts/Pretendard-ExtraBold.eot?#iefix) format(embedded-opentype),
+    url(/fonts/Pretendard-ExtraBold.woff2) format(woff2),
+    url(/fonts/Pretendard-ExtraBold.woff) format(woff),
+    url(/fonts/Pretendard-ExtraBold.ttf) format(truetype),
+    url(/fonts/Pretendard-ExtraBold.svg#Pretendard-ExtraBold) format(svg);
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(/fonts/Pretendard-Regular.eot);
+  src: url(/fonts/Pretendard-Regular.eot?#iefix) format(embedded-opentype),
+    url(/fonts/Pretendard-Regular.woff2) format(woff2),
+    url(/fonts/Pretendard-Regular.woff) format(woff),
+    url(/fonts/Pretendard-Regular.ttf) format(truetype),
+    url(/fonts/Pretendard-Regular.svg#Pretendard-Regular) format(svg);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(/fonts/Pretendard-Medium.eot);
+  src: url(/fonts/Pretendard-Medium.eot?#iefix) format(embedded-opentype),
+    url(/fonts/Pretendard-Medium.woff2) format(woff2),
+    url(/fonts/Pretendard-Medium.woff) format(woff),
+    url(/fonts/Pretendard-Medium.ttf) format(truetype),
+    url(/fonts/Pretendard-Medium.svg#Pretendard-Medium) format(svg);
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(/fonts/Pretendard-SemiBold.eot);
+  src: url(/fonts/Pretendard-SemiBold.eot?#iefix) format(embedded-opentype),
+    url(/fonts/Pretendard-SemiBold.woff2) format(woff2),
+    url(/fonts/Pretendard-SemiBold.woff) format(woff),
+    url(/fonts/Pretendard-SemiBold.ttf) format(truetype),
+    url(/fonts/Pretendard-SemiBold.svg#Pretendard-SemiBold) format(svg);
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

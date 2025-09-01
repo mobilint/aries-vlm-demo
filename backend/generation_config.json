@@ -1,0 +1,11 @@
+{
+  "bos_token_id": 151643,
+  "pad_token_id": 151643,
+  "eos_token_id": 151645,
+  "do_sample": true,
+  "repetition_penalty": 1.1,
+  "temperature": 0.9,
+  "top_p": 0.9,
+  "top_k": 50,
+  "transformers_version": "4.37.0"
+}

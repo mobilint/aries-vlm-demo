@@ -35,6 +35,7 @@ services:
 
     volumes:
       - ./backend/prompt.txt:/prompt.txt
+      - ./backend/generation_config.json:/generation_config.json
       - ${HOME}/.mblt_model_zoo:/root/.mblt_model_zoo
       - ${HOME}/.cache/huggingface:/root/.cache/huggingface
       - /dev:/dev

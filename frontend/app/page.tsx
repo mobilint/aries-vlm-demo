@@ -33,6 +33,8 @@ export default function Page() {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const webcamRef = useRef<Webcam | null>(null);
 
+  const tokenBufRef = useRef<string>("");
+
   recentAnswerRef.current = recentAnswer;
   dialogRef.current = dialog;
 
@@ -50,31 +52,32 @@ export default function Page() {
   }
 
   function onStart() {
-    console.log("start");
+    console.log("[event] start");
+    tokenBufRef.current = ""; 
     setIsAnswering(true);
   }
 
   function onToken(token: string) {
-    setRecentAnswer((oldAnswer) => {
-      if (oldAnswer == null)
-        oldAnswer = token;
-      else
-        oldAnswer += token;
-
-      return oldAnswer;
-    });
+    tokenBufRef.current += token;
+    setRecentAnswer((old) => (old == null ? token : old + token)); 
   }
 
   function onEnd(isAborted: boolean) {
-    console.log("end", isAborted);
+    console.log("[event] end", isAborted);
+    const finalText = tokenBufRef.current; 
+    console.log("[debug] model response: ", finalText);
+    tokenBufRef.current = ""; 
 
     const newDialog = [...dialogRef.current];
-    newDialog[newDialog.length - 1].answer = recentAnswerRef.current;
+    if (newDialog.length > 0) {  
+      newDialog[newDialog.length - 1].answer = finalText; 
+    }
 
     setDialog(newDialog);
     setIsAnswering(false);
     setRecentAnswer(null);
   }
+
 
   useEffect(() => {
     socket.current = io(`${window.location.protocol == 'https:' ? 'wss' : 'ws'}://${window.location.hostname}:5000`);

@@ -1,4 +1,4 @@
-# Aries VLM Demo
+# ARIES VLM Demo
 
 ## Getting started
 
@@ -46,10 +46,10 @@ docker compose down
 
 Path to this repository should be `/home/mobilint/aries-vlm-demo`.
 
-If needed, you can change the path in `vlm-demo.desktop` and `run.sh` file before copying.
+If needed, you can change the path in `aries-vlm-demo.desktop` and `run.sh` file before copying.
 
 ```shell
-sudo cp vlm-demo.desktop /usr/share/applications
+sudo cp aries-vlm-demo.desktop /usr/share/applications
 ```
 
 Then, you can add `VLM` icon in apps to the favorites (left sidebar).

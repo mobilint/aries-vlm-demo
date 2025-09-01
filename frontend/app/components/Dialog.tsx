@@ -49,8 +49,8 @@ export default function Dialog({
             <Image
               src={qna.image}
               alt="Selected image"
-              width={440}
-              height={265.44}
+              width={288}
+              height={288}
               style={{
                 borderRadius: "20px",
                 borderBottomRightRadius: "5px",

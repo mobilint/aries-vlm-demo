@@ -5,5 +5,5 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              count: 1        # 또는 "all"
+              count: "all"
               capabilities: [gpu]

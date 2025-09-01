@@ -10,7 +10,7 @@ from typing import Callable, Dict, Optional
 from contextlib import contextmanager
 import types, functools, inspect
 
-from transformers import DynamicCache, TextIteratorStreamer
+from transformers import DynamicCache, TextIteratorStreamer, GenerationConfig
 from mblt_model_zoo.transformers import AutoProcessor, AutoModelForImageTextToText
 from mblt_model_zoo.transformers.utils import MobilintCache
 
@@ -43,7 +43,7 @@ class StopOnSignalTextIteratorStreamer(TextIteratorStreamer):
         self.stop_event = stop_event
 
     def put(self, value):
-        if self.stop_event.is_set():
+        if self.stop_event.is_set():    
             self.end_of_stream = True
             raise StopIteration()
         super().put(value)
@@ -93,15 +93,19 @@ class ImageTextToTextPipeline:
                     if self.model_id.startswith("mobilint/")
                     else DynamicCache()
                 ),
-                "conversation": [{
-                    "role": "system",
-                    "content": [{
-                        "type": "text",
-                        "text": f.read(),
-                    }]
-                }],
+                "conversation": [
+                    {
+                        "role": "system",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": f.read(),
+                            }
+                        ],
+                    }
+                ],
             }
-            
+
         history_path = self._get_history_path(session_id)
         if os.path.isdir(history_path):
             shutil.rmtree(history_path)
@@ -149,6 +153,13 @@ class ImageTextToTextPipeline:
 
                 self.sessions[session_id]["conversation"].append({"role": "user", "content": content})
 
+                if self.sessions[session_id]["past_key_values"].get_seq_length() > 3900:
+                    logging.warning(
+                        "Size of cache exceeded, reseting... (%i)"
+                        % self.sessions[session_id]["past_key_values"].get_seq_length()
+                    )
+                    self.reset_session(session_id)
+
                 inputs = self.processor.apply_chat_template(
                     self.sessions[session_id]["conversation"],
                     padding=True,
@@ -158,23 +169,18 @@ class ImageTextToTextPipeline:
                     return_tensors="pt",
                 ).to(self.model.device)
 
+                generation_config = GenerationConfig.from_pretrained(".")
+
                 generation_kwargs = dict(
                     **inputs,
                     streamer=streamer,
-                    max_new_tokens=600,
+                    max_new_tokens=400,
                     past_key_values=self.sessions[session_id]["past_key_values"],
                     use_cache=True,
                 )
 
-                if self.sessions[session_id]["past_key_values"].get_seq_length() > 3900:
-                    logging.warning(
-                        "Size of cache exceeded, reseting... (%i)"
-                        % self.sessions[session_id]["past_key_values"].get_seq_length()
-                    )
-                    self.reset_cache(session_id)
-
                 with get_image_features_callback(self.model, on_image_processing_done):
-                    self.model.generate(**generation_kwargs)
+                    self.model.generate(generation_config=generation_config, **generation_kwargs)
 
             except StopIteration:
                 logging.info(f"[{session_id}] - Generation task aborted by user.")
@@ -201,11 +207,14 @@ class ImageTextToTextPipeline:
 
             finally:
                 task_thread.join()
+
                 if not is_aborted:
                     assistant_content = [{"type": "text", "text": answer}]
                     self.sessions[session_id]["conversation"].append(
                         {"role": "assistant", "content": assistant_content}
                     )
+                print(f"[DEBUG] model answer: {answer}")
+
                 on_end(is_aborted=is_aborted)
 
         streamer_thread = Thread(target=streamer_loop)

@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type = Application
-Name = Clear Demo
-Exec = bash /home/mobilint/aries-vlm-demo/stop.sh
-Terminal = true

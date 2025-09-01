@@ -10,9 +10,9 @@ RUN sh /uv-installer.sh && rm /uv-installer.sh
 ENV PATH="/root/.local/bin/:$PATH"
 
 COPY pyproject.toml uv.lock ./
+RUN uv pip install --system --no-cache -r pyproject.toml
+
 COPY src/ImageTextToTextPipeline.py ./
 COPY src/server.py ./
-
-RUN uv pip install --system --no-cache -r pyproject.toml
 
 CMD ["flask", "--app", "server.py", "run", "--host=0.0.0.0"]

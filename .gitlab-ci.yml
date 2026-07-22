@@ -1,0 +1,29 @@
+stages:
+  - mirror
+
+mirror_to_github:
+  stage: mirror
+  image: alpine:3.20
+  rules:
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+  before_script:
+    - apk add --no-cache git openssh-client
+    - test -n "$GITHUB_SSH_KEY" || (echo "GITHUB_SSH_KEY is required" && exit 1)
+    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    - echo "$GITHUB_SSH_KEY" | tr -d "\r" > ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
+    - ssh-keyscan -t rsa,ecdsa,ed25519 github.com >> ~/.ssh/known_hosts
+    - git config --global user.name "beomsu-mobilint"
+    - git config --global user.email "beomsu@mobilint.com"
+  script:
+    - export GITHUB_MIRROR_REPO="${GITHUB_MIRROR_REPO:-mobilint/$CI_PROJECT_NAME}"
+    - export GITHUB_MIRROR_BRANCH="${GITHUB_MIRROR_BRANCH:-main}"
+    - export GITHUB_MIRROR_URL="git@github.com:${GITHUB_MIRROR_REPO}.git"
+    - git clone --depth 1 --branch "$CI_COMMIT_BRANCH" "$CI_REPOSITORY_URL" mirror
+    - cd mirror
+    - git checkout --orphan __github_mirror__
+    - git add -A
+    - git commit --allow-empty -m "Initial commit"
+    - git branch -M "$GITHUB_MIRROR_BRANCH"
+    - git remote add github "$GITHUB_MIRROR_URL"
+    - git push --force github "$GITHUB_MIRROR_BRANCH"

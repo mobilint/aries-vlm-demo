@@ -1,0 +1,15 @@
+{
+  "appTitle": "VLM Powered by ARIES",
+  "imagePanelTitle": "이미지 선택",
+  "chatPanelTitle": "이미지에 대해 질문하기",
+  "autoLabel": "자동",
+  "inputPlaceholder": "예: 이미지에 사람이 몇 명 있나요?",
+  "reset": "초기화",
+  "liveCam": "실시간 카메라",
+  "screenshot": "스크린샷",
+  "galleryHint": "또는 갤러리에서 이미지를 선택하세요",
+  "galleryTitle": "갤러리",
+  "languageLabel": "언어",
+  "statusConnecting": "백엔드에 연결하는 중...",
+  "statusPreparingPromptBundle": "프롬프트 번들을 준비하는 중..."
+}

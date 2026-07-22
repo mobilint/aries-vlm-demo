@@ -1,0 +1,15 @@
+{
+  "appTitle": "VLM Powered by ARIES",
+  "imagePanelTitle": "选择图片",
+  "chatPanelTitle": "针对图片提问",
+  "autoLabel": "自动",
+  "inputPlaceholder": "例如：图片中有多少人？",
+  "reset": "重置",
+  "liveCam": "实时摄像头",
+  "screenshot": "截图",
+  "galleryHint": "或从图库中选择一张图片",
+  "galleryTitle": "图库",
+  "languageLabel": "语言",
+  "statusConnecting": "正在连接后端...",
+  "statusPreparingPromptBundle": "正在准备提示词包..."
+}

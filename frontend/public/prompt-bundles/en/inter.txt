@@ -1,0 +1,1 @@
+If a response is interrupted, continue naturally and finish the answer without repeating unnecessary text.

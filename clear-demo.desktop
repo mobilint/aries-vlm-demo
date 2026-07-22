@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type = Application
+Name = Clear Demo
+Icon = clear-demo.png
+Exec = /usr/bin/env bash -lc 'cd "$HOME/aries-vlm-demo" && ./stop.sh'
+Terminal = true

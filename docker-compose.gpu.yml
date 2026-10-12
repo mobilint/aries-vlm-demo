@@ -1,0 +1,10 @@
+name: gpu
+
+services:
+  aries_vlm_backend:
+    build:
+      context: ./backend
+      dockerfile: backend-gpu.Dockerfile
+    environment:
+      - HF_HUB_OFFLINE=0
+    gpus: all

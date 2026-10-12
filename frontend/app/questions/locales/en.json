@@ -1,0 +1,18 @@
+{
+  "people.jpg": [
+    "Describe the image.",
+    "How many people are visible in the image?"
+  ],
+  "crossroad.jpg": [
+    "Describe what is happening in this street scene.",
+    "What kinds of vehicles and road conditions do you see?"
+  ],
+  "ai_suspicious.png": [
+    "Describe the scene and the people in it.",
+    "Is there anything that looks suspicious or unusual in this image?"
+  ],
+  "ai_fire.png": [
+    "Describe the fire scene in the image.",
+    "What signs suggest this scene is dangerous?"
+  ]
+}

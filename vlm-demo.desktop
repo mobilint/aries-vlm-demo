@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type = Application
+Name = VLM
+Icon = vlm-demo.png
+Exec = /usr/bin/env bash -lc 'cd "$HOME/aries-vlm-demo" && ./run.sh'
+Terminal = true

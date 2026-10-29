@@ -1,0 +1,16 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "flask",
+    "flask-socketio",
+    # 0.7.0 adds Sarashina2.2-Vision support and declares protobuf for its tokenizer
+    "transformers-mblt>=0.7.0",
+    "torchvision",
+]
+
+[tool.black]
+line-length = 120

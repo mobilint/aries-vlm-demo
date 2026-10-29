@@ -1,0 +1,18 @@
+{
+  "appTitle": "VLM Powered by ARIES",
+  "imagePanelTitle": "Select Your Image",
+  "chatPanelTitle": "Ask About The Image",
+  "autoLabel": "Auto",
+  "inputPlaceholder": "e.g. How many people are in the image?",
+  "reset": "Reset",
+  "liveCam": "Live Cam",
+  "screenshot": "Screenshot",
+  "galleryHint": "Or pick an image from the gallery",
+  "galleryTitle": "Gallery",
+  "languageLabel": "Language",
+  "statusConnecting": "Connecting to backend...",
+  "statusPreparingPromptBundle": "Preparing prompt bundle...",
+  "noticeTruncated": "The answer was cut off at the model's context limit. Press Reset to start a new conversation.",
+  "noticeContextFull": "This conversation is too long for the model's context. Press Reset to start a new conversation.",
+  "noticeGenerationFailed": "Failed to generate an answer. Please try again."
+}

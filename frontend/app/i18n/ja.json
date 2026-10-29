@@ -1,0 +1,18 @@
+{
+  "appTitle": "VLM Powered by ARIES",
+  "imagePanelTitle": "画像を選択",
+  "chatPanelTitle": "画像について質問する",
+  "autoLabel": "自動",
+  "inputPlaceholder": "例: 画像には何人いますか？",
+  "reset": "リセット",
+  "liveCam": "ライブカメラ",
+  "screenshot": "スクリーンショット",
+  "galleryHint": "またはギャラリーから画像を選択してください",
+  "galleryTitle": "ギャラリー",
+  "languageLabel": "言語",
+  "statusConnecting": "バックエンドに接続中...",
+  "statusPreparingPromptBundle": "プロンプトバンドルを準備中...",
+  "noticeTruncated": "モデルのコンテキスト上限に達したため、回答が途中で切れました。新しい会話を始めるにはリセットを押してください。",
+  "noticeContextFull": "会話が長すぎて、モデルのコンテキスト上限を超えました。新しい会話を始めるにはリセットを押してください。",
+  "noticeGenerationFailed": "回答を生成できませんでした。もう一度お試しください。"
+}

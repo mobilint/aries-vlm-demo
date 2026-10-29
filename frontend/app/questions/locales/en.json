@@ -1,0 +1,18 @@
+{
+  "crossroad.jpg": [
+    "Describe what is happening in this street scene.",
+    "What kinds of vehicles and road conditions do you see?"
+  ],
+  "chart_revenue.png": [
+    "Which quarter had the highest revenue in 2025, and how much was it?",
+    "Summarize the revenue trend shown in this chart."
+  ],
+  "ai_fire.png": [
+    "Describe the fire scene in the image.",
+    "What signs suggest this scene is dangerous?"
+  ],
+  "receipt.png": [
+    "What is the total amount on this receipt?",
+    "List each item purchased and its price."
+  ]
+}
